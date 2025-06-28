@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             
 
             <div class="text-center">
-                <a href="atv-08.html" class="btn btn-secondary mt-2" style="background-color: lightskyblue; border-color: black; color: black;">Voltar</a>
+                <a href="atv-08.html" class="btn btn-secondary mt-2 col-sm-5" style="background-color: lightcoral; border-color: black; color: black;">Voltar</a>
+                <a href="/Lista-02/Lista-02/Atv-09/atv-09.html" class="btn btn-secondary mt-2 col-sm-5" style="background-color: lightskyblue; border-color: black; color: black;">Próximo</a>
             </div> 
         </div>
     </body>

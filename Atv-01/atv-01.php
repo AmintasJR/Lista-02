@@ -32,8 +32,10 @@
                         <p><strong>Salário bruto mensal: R$<?php echo number_format($salario, 2, ',', '.'); ?></strong></p> <!--Strong no lugar do <b> para boas práticas-->
                     </div>
             <?php endif; ?> <!--Caso houvesse uma forma de passar sem informar um valor, por o else para tratamento-->
+
             <div class="text-center"> <!--Alinhar botão no meio da tela. Botão para voltar a tela inicial-->
-                <a href="atv-01.html" class="btn btn-secondary mt-2" style="background-color: lightskyblue; border-color: black; color: black;">Voltar</a>
+                <a href="atv-01.html" class="btn btn-secondary mt-2 col-sm-5" style="background-color: lightcoral; border-color: black; color: black;">Voltar</a>
+                <a href="/Lista-02/Lista-02/Atv-02/atv-02.html" class="btn btn-secondary mt-2 col-sm-5" style="background-color: lightskyblue; border-color: black; color: black;">Próximo</a>
             </div> 
         </div>
     </body>

@@ -1,17 +1,31 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $peso = str_replace(',', '.', $_POST['peso']); // Como estamos trabalhando com dinheiro
-    $altura = str_replace(',', '.', $_POST['altura']); // Será reconhecido como letra(só aceita pontos), por conta das vírgulas;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $peso = str_replace(',', '.', $_POST['peso']); // Como estamos trabalhando com dinheiro
+        $altura = str_replace(',', '.', $_POST['altura']); // Será reconhecido como letra(só aceita pontos), por conta das vírgulas;
 
-    // Validar se os dois valores são numéricos antes de converter e calcular
-    if (is_numeric($peso) && is_numeric($altura)) {
-        $peso = floatval($peso);
-        $altura = floatval($altura);
-        $imc = $peso / ($altura * $altura);
-    } else {
-        $imc = null; // utilizar para validação ao apresentarna
+        // Validar se os dois valores são numéricos antes de converter e calcular
+        if (is_numeric($peso) && is_numeric($altura)) {
+            $peso = floatval($peso);
+            $altura = floatval($altura);
+            $imc = $peso / ($altura * $altura);
+
+            if ($imc <18.5) {
+                $descricao = "Abaixo do peso";
+            } elseif ($imc >= 18.5 && $imc < 24.9) {
+                $descricao = "Peso normal";
+            } elseif ($imc >= 25 && $imc < 29.9) {
+                $descricao = "Sobrepeso";
+            } elseif ($imc >= 30 && $imc < 34.9) {
+                $descricao = "Obesidade grau I";
+            } elseif ($imc >= 35 && $imc < 39.9) {
+                $descricao = "Obesidade grau II";
+            } else {
+                $descricao = "Obesidade grau III ou mórbida";
+            }
+        } else {
+            $imc = null; // utilizar para validação ao apresentarna
+        }
     }
-}
 ?>  
 
 <!DOCTYPE html>
@@ -36,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <p>Peso: <strong><?php echo number_format($peso, 2, ',', '.'); ?></strong></p> <!--Sempre abrir tag do php para utilizar os valores e formatação dos valores-->
                         <p>Altura:  <strong><?php echo number_format($altura, 2, ',', '.'); ?></strong></p>
                         <p><strong>IMC: <?php echo number_format($imc, 2, ',', '.'); ?></strong></p> <!--Strong no lugar do <b> para boas práticas-->
+                        <p><strong><?php echo $descricao; ?></strong></p> 
                     </div>
             <?php else: ?> <!-- Valores incorretos (possui letras) -->
                 <div class="mt-2 p-3 border bg-light rounded text-center">
@@ -46,7 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
 
             <div class="text-center">
-                <a href="atv-03.html" class="btn btn-secondary mt-2" style="background-color: lightskyblue; border-color: black; color: black;">Voltar</a>
+                <a href="atv-03.html" class="btn btn-secondary mt-2 col-sm-5" style="background-color: lightcoral; border-color: black; color: black;">Voltar</a>
+                <a href="/Lista-02/Lista-02/Atv-04/atv-04.html" class="btn btn-secondary mt-2 col-sm-5" style="background-color: lightskyblue; border-color: black; color: black;">Próximo</a>
             </div> 
         </div>
     </body>
