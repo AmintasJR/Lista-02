@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <!--codificação dos caracteres, permite acentos e tudo mais.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Para questãos de responsividade-->
+    <title>Atividade - 01</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">  <!--Importa CSS do bootstrap - cotainers, botões, etc..-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>    <!--Importa o java do bootstrap - dropdown, modais ...-->
+    
+</head>
+    <body>
+        <div>
+            <h1 class="text-center my-5" style="color: lightskyblue;">Cálculo de Salário Bruto Mensal</h1>
+        </div>
+        
+        <div class="container border p-4" style="max-width: 400px; border-radius: 10px;">
+            <form action="atv-01.php" method="post">
+                <div class="mb-3 row"> <!-- mb-3 = margem inferior; row = cria uma linha no grid do Bootstrap -->
+                    <!-- Rótulo do campo, alinhado à direita e ocupando 4 colunas em telas pequenas ou maiores -->
+                    <label for="valorhora" class="col-sm-4 col-form-label text-end">Valor hora:</label> 
+                    <div class="col-sm-7"> <!-- Campo de entrada ocupando 7 colunas -->
+                        <!-- * id="valorhora" conecta com o label acima no for
+                            * name="valorhora" é o nome do campo no envio do formulário
+                            * class="form-control" aplica o estilo do Bootstrap
+                            * required = torna o campo obrigatório
+                            * placeholder = dica de preenchimento -->
+                        <input type="number" id="valorhora" name="valorhora" class="form-control" style="text-align: center;" required placeholder="R$ 0,00">
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="horassemanais" class="col-sm-4 col-form-label text-end">Horas semanais:</label>
+                    <div class="col-sm-7">
+                        <!-- tipo time (formatação em horas) -->
+                        <input type="number" id="horassemanais" name="horassemanais" class="form-control text-center" required placeholder="00:00">
+                    </div>
+                </div>
+                
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" name="confirmar" style="background-color: lightskyblue; border-color: black; color: black;">Confirmar</button>
+                    </div>
+            </form>    
+        </div>
+    </body>
+</html>
